@@ -5,6 +5,16 @@
   --foreground: #171717;
 }
 
+.light {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +22,34 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--foreground);
+  background: var(--background);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Three.js canvas用スタイル */
+canvas {
+  display: block;
+  outline: none;
+}
+
+/* ボタン基本スタイル */
+button {
+  transition: all 0.2s ease;
+}
+
+/* lil-gui テーマ対応 */
+.lil-gui {
+  --background-color: var(--background);
+  --text-color: var(--foreground);
+  --widget-color: var(--foreground);
+  --hover-color: rgba(255, 255, 255, 0.1);
+  --focus-color: rgba(255, 255, 255, 0.2);
+}
+
+.dark .lil-gui {
+  --hover-color: rgba(255, 255, 255, 0.1);
+  --focus-color: rgba(255, 255, 255, 0.2);
 }
